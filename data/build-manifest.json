@@ -1,0 +1,24 @@
+{
+  "schema": "build-research-atlas/v1",
+  "compiled_for": "2026-08-11",
+  "source": "atlas.json",
+  "source_sha256": "051ae95e8054548fc9f8d76a8c3492cc6b8bc01ab7ba547735a2578518a26a7e",
+  "paper_count": 134,
+  "aggregate_total": 134,
+  "outputs": [
+    "index.html",
+    "data/atlas-meta.js",
+    "data/papers-data.js",
+    "data/papers.json",
+    "data/papers.csv",
+    "data/references.bib"
+  ],
+  "output_sha256": {
+    "index.html": "8572996384244240caa2d6267373ff7daa511190180b4b4e9c721748116207b8",
+    "data/atlas-meta.js": "3844eebd5da86220a3654f77cbaea74a1cb1d06d04dbd147ee0046f04e845841",
+    "data/papers-data.js": "0a78ffe7a5d21706447f00e95411ea1d8a55baf360357f078353900be5808144",
+    "data/papers.json": "049f9ea8c18d072f5f4f4cc04094842859c57c7980a4d57000c3217d96236328",
+    "data/papers.csv": "e69247be709998fbeccc7c6d63187d6850ecdeef699165731fe21af6f34e96dc",
+    "data/references.bib": "6c9c3b97918f0dd4654274787babc10044e703ebf4a7f3a0c56076cb2fdfc40f"
+  }
+}

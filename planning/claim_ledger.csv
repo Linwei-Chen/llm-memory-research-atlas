@@ -1,0 +1,117 @@
+claim_id,claim_text,paper_id,evidence_location,V,D,P,Q,audit_status,notes
+C01,完形提示表明预训练参数中存在可访问的关系知识但不等于可靠知识库,a01,ACL Anthology 正式摘要,V2,D2,P2,Q2,VERIFIED,作者直接实验；可靠性限定由 C02 提供
+C02,早期参数知识抽取成绩可被提示偏差、实体类型线索和答案泄漏显著夸大,knowledgeable-educated-guess-2021,ACL 正文第 3–5 节、Tables 1–7 与 Figure 6,V3,D3,P3,Q3,VERIFIED,全文反证；论文只覆盖掩码语言模型，不直接外推到所有生成模型
+C03,ROME 用因果追踪定位主语令牌处的中层前馈模块并执行秩一更新,a05,NeurIPS 正式论文第 2.1–3.1 节、Figure 2、Figure 4 与 Eq. (2)–(4),V3,D2,P2,Q2,VERIFIED,机制与局限已由全文复核；不把定位外推为最佳编辑层预测
+C04,因果定位结果不能稳定预测哪一前馈层最适合编辑,a09,NeurIPS 正式摘要与全文实验,V3,D3,P2,Q2,VERIFIED,对“定位自然指导编辑”的独立反证
+C05,多种知识编辑器能召回目标事实却在依赖该事实的多跳问题上严重失效,a10,ACL Anthology 正式摘要与基准部分,V3,D3,P2,Q2,VERIFIED,直接比较目标召回与多跳利用
+C06,主流知识编辑器很难让相关事实产生一致的涟漪更新,a11,TACL 正文第 3–5 节与 Tables 1–6；摘要称 5K 编辑而正文三组表列合计 4K,V3,D3,P2,Q2,VERIFIED,反证；版本内样本数冲突已显式保留，不把任一数字写成无争议事实
+C07,所测四种知识编辑方法在三个模型和八类任务上总体呈现通用能力下降但强度随方法、模型和任务变化,model-editing-harms-2024,EMNLP 正文第 4.1–4.4 节、Figures 3–5 与 Table 1,V3,D3,P3,Q3,VERIFIED,作者比较；不把特定灾难性案例或 RECT 的可靠性与泛化保持率外推为统一规律
+C08,常规编辑指标近乎满分时被编辑模型仍可在特定前缀下恢复原知识,superficial-editing-2025,ACL 正文第 2–4 节、Tables 1–4 与 Figures 2–5,V3,D3,P3,Q3,VERIFIED,反证；早层主要抑制新答案，旧答案在后层注意整合后反超，不能外推为所有部署必然触发
+C09,Transformer-XL 通过段级循环缓解固定片段的上下文碎片问题,a12,ACL 正式摘要与论文方法部分,V3,D2,P2,Q2,VERIFIED,奠基机制主张
+C10,循环记忆 Transformer 的“理论无限”不等于实际记忆令牌容量无限,a16,NeurIPS PDF 结论第 9 页与引言,V3,D2,P2,Q2,VERIFIED,作者明确限定理论性质与实际访问瓶颈
+C11,即使相关证据被完美召回输入长度本身仍可让任务表现下降 13.9%–85%,context-length-alone-hurts-2025,ACL 正式摘要与 PDF 第 3–4 节,V3,D3,P3,Q3,VERIFIED,范围限定为所测五个模型和三类任务
+C12,kNN-LM 无需追加训练便可用近邻数据库改善语言建模并通过替换数据库适配领域,ext-knnlm-2020,ICLR PDF Table 1 与 Table 4,V3,D2,P2,Q2,VERIFIED,作者实验；不外推为通用长期记忆
+C13,RAG 实验显示替换外部 Wikipedia 索引可改变对不同年份事实的回答,ext-rag-2020,RAG PDF 第 6 节世界领导人实验,V3,D2,P2,Q2,VERIFIED,只支持外部库可更新性不支持无错更新
+C14,RETRO 7.5B 在作者所测设置中可接近参数规模约二十五倍的模型但低质检索也可产生负收益,ext-retro-2022,ICML PDF Figure 1、Figure 4 与 Table 4,V3,D2,P2,Q2,VERIFIED,性能比较限于论文设置
+C15,SERAC 将编辑保存在显式记忆中并学习作用域以决定何时覆盖基础模型,serac-2022,PMLR 正式摘要,V2,D2,P2,Q3,VERIFIED,支持参数编辑与外部记忆之间的桥接分类；证据轴已与独立审计后的地图记录同步
+C16,Generative Agents 用近期性、重要性和相关性检索记忆流并以反思形成高层摘要,agent-generative-agents-2023,UIST PDF Figure 5 与第 4.1–4.2 节,V3,D2,P2,Q2,VERIFIED,机制及消融有全文位置
+C17,Reflexion 在部分任务受益但 WebShop 相对 ReAct 无显著收益且可陷入局部最优,agent-reflexion-2023,NeurIPS PDF Appendix B.1 与 Figure 6,V3,D2,P2,Q2,VERIFIED,用于抵消“反思必然改进”的过度主张
+C18,A-Mem 的链接与演化在消融中有效但报告的检索延迟未完整计入大模型建链成本,agent-amem-2025,NeurIPS PDF Table 3、Table 4 与第 4.6 节,V3,D2,P2,Q2,VERIFIED,正面机制与成本限定配对记录
+C19,相似任务会触发智能体经验跟随并可导致错误传播与错位经验重放,memory-management-impact-2026,ACL 2026 正文第 3–4 节、Tables 1–2 与 Figures 3–4、6,V3,D3,P3,Q3,VERIFIED,全文复核；结论限于所测代理、评价器与记忆增删设置
+C20,LoCoMo 中 GPT-4-Turbo 的问答 F1 为 51.6 而人类为 87.9,locomo-2024,ACL PDF Table 3,V4,D3,P3,Q3,VERIFIED,数字只用于该数据集与设置
+C21,LongMemEval 将长期互动记忆拆为五种能力并显示完美召回仍不等于正确阅读,longmemeval-2025,ICLR PDF 第 3–4 节与 pilot study 表格,V4,D3,P3,Q3,VERIFIED,官方仓库的 2025-09 数据清理与原论文结果分开记录
+C22,Mem2ActBench 包含 2029 个会话和 400 个工具任务且人工确认 91.3% 强依赖长期记忆,mem2actbench-2026,ACL 正式摘要与 PDF Table 1,V3,D3,P3,Q3,VERIFIED,构造数据的外部效度限制已单列
+C23,受控实验表明外部知识库是 RAG 的独立污染面而所测若干通用防御不充分,poisonedrag-2025,USENIX 正式页与 PDF 摘要,V3,D3,P3,Q3,VERIFIED,只保留风险与防御含义不记录可操作细节
+C24,MUSE 的六维评测显示多种机器遗忘方法在隐私、大规模删除、连续请求或效用保持上失败,muse-2025,ICLR PDF 摘要、第 1 节与 Table 1,V4,D3,P3,Q3,VERIFIED,只限所测八种方法
+C25,少量松散相关的正常再学习可逆转多种遗忘方法的表观效果,unlearning-or-obfuscating-2025,ICLR PDF 摘要与第 1 节,V4,D3,P3,Q3,VERIFIED,支持部分方法为输出抑制而非稳健移除的解释
+C26,两个所测代表性智能体存在长期记忆隐私暴露且记忆配置会影响泄漏,mextra-2025,ACL 正式摘要与 PDF 实验分析,V3,D3,P3,Q3,VERIFIED,不外推为真实事件发生率
+C27,控制表面提示线索后 PII 重构显著下降说明部分既有泄漏测量会把模式补全误判为记忆化,pii-cue-controlled-2026,ACL 2026 正式摘要,V2,D3,P3,Q3,VERIFIED,风险与测量误差同时保留
+C28,Agentic Memory 在作者五基准设置中使 Qwen2.5-7B 与 Qwen3-4B 的平均分达到 41.96 和 54.31，较最强对照高 4.82 和 8.57 个百分点；更密集的逐步奖励同时增加令牌和工具调用,agent-agemem-2026,Table 2／§4.2；Figure 4／Table 4；Limitations,V3,D2,P2,Q2,VERIFIED,限于受控五基准、HotpotQA 来源训练轨迹及含大模型裁判的协议；不外推为真实长期部署收益
+C29,AgentPoison 在允许少量数据库写入且优化阶段可访问白盒嵌入器的威胁模型下，报告平均检索成功率 81.2%、端到端影响率 62.6%，普通任务性能平均变化 0.74%,agentpoison-2024,第 3.2 节 Threat model；表 1；第 4.1 至 4.2 节；Limitations,V3,D3,P3,Q3,VERIFIED,安全结论保留写库权限与白盒嵌入器前提；不给出构造细节，也不解释为生产事件发生率
+C30,AlphaEdit 在受保护键矩阵的近似零空间条件下投影候选更新，并在作者所测模型与编辑法上报告平均提升 36.7%,a08,ICLR 正式论文摘要,V3,D2,P2,Q2,VERIFIED,36.7% 是作者协议内平均值；线性键空间保证不等于所有下游行为保持不变
+C31,Augmenting Language Models with Long-Term Memory 在作者设置中测试至 65K 长度，报告困惑度降低 1.38–1.62、ChapterBreak 40.5%，且去掉记忆后平均准确率下降 7.3 点,a17,NeurIPS PDF 摘要与 Figure 1（第 1–2 页）；第 3 页；Table 6（第 9 页）,V3,D2,P2,Q2,VERIFIED,数字限于论文模型、任务和非可微外部缓存设置；65K 不是无限上下文证据
+C32,Multi-Session Chat 覆盖同一角色最多五次会话，作者报告检索式与摘要式记忆优于不显式利用长期历史的标准编码器—解码器,msc-2022,摘要；§1；§3；Tables 1–2,V4,D3,P3,Q3,VERIFIED,众包角色扮演且最多五次会话；比较不等同于真实用户数月或数年的持续互动
+C33,Block-Recurrent Transformer 的固定门控加 skip 配置在 PG19、arXiv、GitHub 上优于 XL2048，单步时间 0.99 对 2.11；约快两倍只适用于 Table 1 的该配置,a15,§4，Table 1（印刷第 6–7 页）；§4.5，Table 2（印刷第 9 页）；§4.6（印刷第 9 页）,V3,D2,P2,Q2,VERIFIED,跨架构原始困惑度受参数量、词表和训练计划混杂；定性改善主要是窗口外专有名称线索
+C34,Compressive Transformer 的作者摘要报告 WikiText-103 困惑度 17.1 与 Enwik8 每字符比特 0.97，但正文说明语音实验尚未完全收敛,a13,ICLR 正式页摘要；OpenReview PDF 语音实验讨论,V3,D2,P2,Q2,VERIFIED,正面语言建模数字与未收敛负面结果成对登记；不外推到跨会话记忆
+C35,ExpeL 的经验累积与任务表现关系及消融支持其经验池机制，但论文当前全部 insights 仍可放入上下文，真正终身规模需要额外检索,agent-expel-2024,Figures 5–6；Table 3；§6,V3,D2,P2,Q2,VERIFIED,因果含义仅来自作者消融；尚无大规模经验冲突、遗忘与真实长期部署验证
+C36,MEND 在 2.7B 至 11B 模型上的编辑成功率为 0.81–0.89，但同时编辑 125 条时成功率降至 0.67，不能把小批量表现外推为无限累积稳定,a04,§5.1，Table 3（印刷第 7 页）；§5.3，Table 5（印刷第 8 页）；§6（印刷第 9 页）,V3,D2,P2,Q2,VERIFIED,训练资源与性能均为作者硬件和编辑分布下结果；随机局部性负例可能偏易
+C37,Keep Me Updated 的更新模型在 CareCallmem 上达到 84.10% 四类关系准确率与 88.69 集合级句子 F1；155 个情节人评中显著性只直接成立于可记忆性，而非参与感或拟人感,keep-me-updated-2022,Tables 3–5；§5.1 至 §5.2,V3,D3,P3,Q3,VERIFIED,参与感和拟人感只报告更高均值；不把均值方向误写成统计显著
+C38,TTT 在作者所测 125M–1.3B 模型中超过 16K 后困惑度继续下降，而受测 Mamba 不再改善；TTT-MLP 同时存在内存 I/O 挑战,a20,PMLR 正式版摘要,V3,D2,P2,Q2,VERIFIED,趋势限于论文模型规模和任务；测试时梯度更新的算力与隔离风险不由该比较消除
+C39,LightMem 在 LoCoMo 上报告平均 F1 比 A-MEM 高约 2.5、检索中位延迟 83 毫秒、端到端 581 毫秒；级联错误可使 DialSim F1 从 4.12 降至 1.85,agent-lightmem-2026,Table 2；Table 4；Tables 6–7；§6／附录 §9.2,V3,D2,P2,Q2,VERIFIED,LightMem 并非检索最快；效果—延迟结论与错误压力测试均限于作者协议
+C40,LoCoMo-Plus 中三种专门记忆系统的认知记忆得分为 14.90–17.20，而原 LoCoMo 平均分为 57.24–59.64；裁判与两位人工的一致度为 0.801 和 0.820,locomo-plus-2026,Table 1；§6.1 至 §6.2；Figures 5–7；Tables 2–3；§6.3 至 §6.5,V3,D3,P3,Q3,VERIFIED,小型诊断性合成基准不代表真实世界频率；裁判有实证一致性但并非无误
+C41,PLATO-LTM 在受控自对话人评中的一致性为 0.87，高于 PLATO-FT 的 0.40 与 PLATO-2 的 0.13，但连贯性 1.67 略低于 PLATO-2 的 1.70,plato-ltm-2022,Table 5；§5.3.3；Tables 3–4；§5.3.1 至 §5.3.2,V3,D3,P3,Q2,VERIFIED,收益主要落在人物一致性，不代表所有对话质量维度都改善
+C42,Lost in the Middle 显示相关信息位于长上下文中部时性能呈 U 形下降，GPT-3.5 的中间位置结果可低于 56.1% 闭卷基线，GPT-4 仍出现位置效应,a22,Figure 1 与 §2.3；第 158–159 页；Figure 15,V3,D3,P2,Q2,VERIFIED,位置效应限于论文任务与模型版本；不等于所有长上下文输入必然同幅退化
+C43,MEMIT 在 GPT-J 上批量编辑 10000 条 zsRE 时编辑成功率 96.7、改写成功率 89.7、specificity 26.6；后者接近未编辑模型 27.0，只表示额外溢出较小而非绝对准确率高,a06,§5.2.1，Table 1（印刷第 7 页）；§5.2.2，Figure 5 与 Table 2（印刷第 7–8 页）,V3,D2,P2,Q2,VERIFIED,批量结果只覆盖论文所测方向性三元组；specificity 的语义已防止被误读为高绝对表现
+C44,Mem0 作者报告相对 OpenAI 记忆基线的裁判指标提升 26%、p95 延迟降低 91%、令牌节省超过 90%，但 full-context 的裁判分约 73% 仍高于 Mem0 约 67% 与图版约 68%,agent-mem0-2025,Table 2；§4.2 至 §4.5；§4.3,V3,D2,P2,Q2,VERIFIED,生产就绪措辞主要由成本与延迟支撑；准确率、独立跨域证据和治理保证不得随之泛化
+C45,MemGPT 的错误分析显示嵌入检索会漏掉金标准、模型会过早停止翻页，GPT-3.5 因函数调用较弱而退化，嵌套超过两层时性能下降,agent-memgpt-2023,Tables 2–3；Figures 5、7；正文错误分析,V3,D2,P1,Q1,VERIFIED,该条为预印本且证据质量较低；只登记观察到的失效模式，不宣称操作系统式分层必然优于其他记忆
+C46,MemLLM 的 TARGET PPL 从禁用记忆时 3.510 降至完整 Wikipedia 记忆时 2.986；1000 次连续 ZsRE 编辑平均分 0.84，但 216 个可靠性错误中写失败 45、未检索 95、检索后未有效使用 63,agent-memllm-2025,Table 2／§4.2；Table 3／§4.3；Qualitative Analysis,V3,D2,P2,Q2,VERIFIED,只覆盖 96 类关系且未与 RAG 直接比较；错误分解用于限制跨范式优越性主张
+C47,MINJA 在代理会自动写入交互且默认共享记忆库的前提下，跨设置平均写入成功率 98.2%、后续目标行为率 76.8%；结果随任务与良性记忆密度显著变化,minja-2025,第 3 节 Threat Model；Table 1／§5.2；Tables 4–5／§5.3 至 §5.4,V3,D3,P3,Q3,VERIFIED,安全主张保留自动写入、可后续检索与共享记忆前提；不记录具体构造，也不外推所有生产服务
+C48,MemoryOS 作者在 LoCoMo 上报告相对基线的显著平均 F1 提升，并同时报告调用次数与令牌开销，但该受控基准结果不构成真实长期部署、隐私或删除保证,memoryos-2025,PDF Table 2、Table 3；PDF Limitations,V4,D3,P3,Q3,VERIFIED,只保留 atlas 已核验的比较方向与成本位置，不补写未在 atlas 中记录的具体幅度
+C49,Memory-R1 用 152 个训练问答后，在 LLaMA-3.1-8B 的 LoCoMo 设置中相对最强 MemoryOS 的整体 F1、B1、裁判分约提升 28.5%、34.0%、30.2%，但不同奖励会出现指标错配,agent-memory-r1-2026,Table 1／§4.2；Table 2；Limitations；附录 Tables 4–5,V3,D2,P2,Q2,VERIFIED,比较限定于作者表格与对话型基准；裁判奖励更高不代表 F1 或 B1 同步更高
+C50,MEMORYLLM 为 Llama2-7B 增加 1.066B 记忆参数，在作者知识编辑表中 zsRE 与 CounterFact 得分 79.2、75.3，高于 ROME 的 69.3、69.2，但 Qasper 结果不理想,a18,PMLR PDF §3.3；Table 1；§4.4,V3,D2,P2,Q2,VERIFIED,参数与比较只用于论文设置；负面 Qasper 和短上下文分布偏移与正面结果成对登记
+C51,MemSim 的 MemDaily 含 2954 条轨迹、26003 条消息和 2954 个问题；其贝叶斯关系网络与因果生成旨在降低事实幻觉影响，但只覆盖事实信息而非隐性偏好或完整对话,memsim-2025,NeurIPS 正式摘要与 PDF 第 1–2 页；PDF Limitations；官方仓库 README,V4,D3,P3,Q3,VERIFIED,数据规模来自作者官方仓库；结构正确性不能外推为真实用户分布正确性
+C52,PerMemSafe 的合成基准含 5 个领域、276 段对话和 750 个实例；作者协议下 SentinelMem 相对最强基线的安全率提升 23.80%、帮助性提升 10.73%,permemsafe-2026,第 1 节；Figure 2；§3.1 至 §3.2；Figure 5；Table 3；§5；Limitations,V3,D2,P3,Q2,VERIFIED,23.80% 与 10.73% 只代表该合成、纯文本协议，不能解释为生产风险下降或完整防御保证
+C53,RecMem 在 LoCoMo 上将构建令牌从 Mem0 的 1520.8K 降至 193.2K（87.3%），裁判分 81.10 高于受测记忆基线但仍低于 full-context 的 84.18,agent-recmem-2026,Table 1；Table 2；Figure 2；§4.2 至 §4.3；§6,V3,D2,P2,Q2,VERIFIED,主要指标依赖大模型裁判；手工阈值与罕见但关键事件的弱巩固限制仍保留
+C54,Titans 作者报告多领域优于受测基线并在合成检索中超过 2M 上下文，但两百万级证据主要是合成任务，不能外推为真实跨会话治理能力,a21,NeurIPS 正式论文摘要；全文 long-context experiments；§3.1，Eqs. 8–15,V3,D2,P2,Q2,VERIFIED,把作者的广泛性能措辞与合成检索范围限定绑定记录；测试时更新仍有算力和状态污染风险
+C55,Voyager 在 Minecraft 设置中相对既有方法报告 3.3 倍独特物品、2.3 倍探索距离、关键技术树最多快 15.3 倍，且移除技能库后进展平台化,agent-voyager-2024,摘要；§2.2／Figure 4；Figure 9；§4,V3,D2,P2,Q2,VERIFIED,数字仅适用于 Minecraft、GPT-4 黑盒与文本化感知设置；不外推到现实具身环境或用户记忆治理
+C56,统一控制抽取器、返回预算和组件后，图记忆在部分检索指标上占优，但 Value=Key 的四组 LongMemEval 端到端问答均由平面强基线领先；实现细节可改变结论,does-memory-need-graphs-2026,ACL PDF 第 3–4 节、Tables 2–8、Conclusion 与 Limitations,V3,D3,P3,Q3,VERIFIED,图结构不是无条件负面结论；HaluMem、抽取模型、记忆粒度与重排配置都会改变相对优势
+C57,SteeM 把记忆依赖建模为 1–5 级可控轴；小规模人工验证中 Qwen3-8B 的依赖顺序与目标一致率为 77%，Rubric Instruct 为 65%,steem-2026,ACL PDF Figure 2、Table 1、第 5.1–5.3 节、Figures 4–7 与 Limitations,V3,D3,P3,Q3,VERIFIED,结果限于模拟研究与辅导场景及有限人评；离散依赖等级不代表真实用户的全部条件化偏好
+C58,SUPO 在固定工作窗口下用摘要扩展有效轨迹；作者设置中 CodeGym 为 47.7% 对 GRPO 的 44.5%，BrowseComp-Plus 为 53.0% 对 39.0%，SWE-Bench-Verified 为 55.0% 对 48.0%,supo-2026,ACL PDF 第 2–4 节、Tables 1–2、Figure 4 与 Limitations,V3,D3,P3,Q3,VERIFIED,工作窗口与摘要后的有效长度分开解释；收益依赖可验证终局奖励和固定压缩触发，不等同于原生超长上下文
+C59,HippoRAG 用语言模型开放信息抽取知识图和个性化 PageRank 支持多跳长期检索，但其在线效率比较不包含离线建图成本,hipporag-2024,NeurIPS 正式 PDF 第 2.3、5.2–5.3、7 节及附录 F/G,V3,D2,P2,Q2,VERIFIED,全文复核；速度和成本数字仅限所测配置，不外推为端到端总成本
+C60,Memory Layers at Scale 将稀疏可训练键值记忆层扩展到最高 128B 记忆参数和 1T token 训练，但相近前向 FLOPs 不等于零存储或带宽成本,memory-layers-scale-2025,ICML 正式 PDF 第 3–6 节、Figure 1、Tables 1–4,V3,D2,P2,Q2,VERIFIED,全文复核；容量—计算解耦限定为论文机制和受测规模
+C61,Beyond Prompts 用动态任务交错暴露静态单任务评测遗漏的长期状态失败，但结果依模型与配置且每个场景仅重复三次,beyond-prompts-2024,NeurIPS 正式 PDF 第 3.1–4、5、7 节及 Table 1,V3,D2,P2,Q2,VERIFIED,全文复核；不复述与可见表格冲突的统一差值上限
+C62,M+ 在所测保持任务中把 MEMORYLLM 约 20K 后的困难扩展到 160K 以上但更长设置仍有查询延迟与淘汰代价,mplus-2025,ICML 正式 PDF 第 3.2、4.2–4.6、5 节及 Tables 1–3、Figures 5–7,V3,D2,P2,Q2,VERIFIED,全文复核；不把任务范围外推为真实跨会话记忆或相近端到端成本
+C63,RECALLbot 的 N=40 随机组间实验持续 14 天但基线同时移除了记忆、披露策略与控制界面,recallbot-2026,CHI 正式全文第 5.1–6.3 节、Tables 2–6 与 Figure 7,V3,D2,P2,Q2,VERIFIED,全文复核；界面删除不作为后端删除验证
+C64,Relational Gains 对 20 名美国 ChatGPT 用户做一次性访谈并让其检查本人产品记忆,relational-gains-privacy-strains-2026,CHI 正式全文第 3.1–5.6 节与 Table 2,V3,D1,P2,Q2,VERIFIED,用户感知不作为客观准确率、遗忘或删除测量
+C65,RMM 用前瞻反思写出多粒度记忆并用回答中的记忆引用形成回顾反馈闭环但收益只在所测文本基准成立,rmm-2025,ACL 正式 PDF 第 2–3.4 节、Figures 2–3、Tables 1–3,V3,D2,P2,Q2,VERIFIED,全文复核；不外推到真实跨月部署或隐私删除
+C66,Text2Mem 把抽取、合并、删除与检索等生命周期操作表达为统一文本操作语言并直接评测操作执行,text2mem-2026,ACL Findings 正式 PDF 方法章节、操作定义表、主结果与消融表,V3,D2,P2,Q2,VERIFIED,全文复核；操作语言不等于后端数据已完成可验证删除
+C67,MemoryAgentBench 以增量多轮协议分别测量准确检索、测试时学习、长期理解和选择性遗忘,memoryagentbench-2026,ICLR 正式论文第 2–4 节、基准定义图表与主结果,V3,D2,P2,Q2,VERIFIED,全文复核；基准能力维度不等于真实产品生命周期治理
+C68,LifeDialBench 用真实生活日志事件锚定合成对话来测连续时间、更新与检索但对话本身不是真实用户日志,lifedialbench-2026,ACL Findings 正式 PDF 数据构建、Figure 1、Tables 1–4 与 Limitations,V3,D2,P2,Q2,VERIFIED,全文复核；明确真实事件锚定与合成对话的区别
+C69,FragFuse 表明逐轮访问控制可能遗漏长期记忆跨交互组合形成的有状态风险,fragfuse-2026,USENIX 正式页及公开全文第 5.2–7 节、Table 1,V3,D2,P2,Q2,VERIFIED,安全降敏；只保留汇总风险与防御含义，不记录复现步骤
+C70,WikiBigEdit 在超过 50 万问答更新的时间快照上显示局部编辑快速退化且事实检索优势不能消除多跳瓶颈,wikibigedit-2025,ICML 正式 PDF 第 3–4.4 节、Figures 1–7 与附录 Figures 19–20,V3,D2,P2,Q2,VERIFIED,全文复核；结论限定于五个约 7B 模型、指定嵌入器和 top-2 RAG
+C71,Larimar 用固定大小潜在情景记忆完成单次写入与负写入但容量超过设计值后保留率下降且改写仍可恢复部分目标,larimar-2024,ICML 正式 PDF 第 3、5.1–5.4、7 节、Algorithm 1 与 Tables 1–5,V3,D2,P2,Q2,VERIFIED,全文复核；负写入不等于密码学删除，结果限于短事实编辑
+C72,敏感信息删除研究通过隐藏状态、概率差和改写恢复检验表明直接拒答不能证明权重中的目标事实已不可提取,can-sensitive-information-be-deleted-2024,ICLR 正式 PDF 第 3–4、7–8 节、Figures 1–4 与 Table 1,V3,D3,P2,Q2,VERIFIED,独立反驳式安全评测；降敏记录，不提供操作性复现步骤
+C73,Algorithmic Self-Portrait 审计 80 名用户导出的 2050 条产品记忆并发现多数写入并非由显式记忆指令触发,algorithmic-self-portrait-2026,WWW 正式论文公开稿第 3–8 节、Figures 1–5 与 Tables 4–5,V3,D2,P2,Q2,VERIFIED,全文复核；单一变化中的产品和有限捐赠样本不代表全部用户
+C74,ERASE 把可撤回任务适配数据保留在量化聚类选择的上下文示例中从而得到精确删除但把成本转移到长期推理上下文,fast-exact-unlearning-2025,ICML 正式 PDF 第 3–6 节、Algorithm 1、Tables 1–2 与 Figures 1–3,V3,D2,P2,Q2,VERIFIED,全文复核；只覆盖与预训练独立的任务适配数据，不解决预训练知识删除
+C75,Knoll 的两个月部署把外部知识做成可创建、启停、共享与显示来源的模块但源权限不等于第三方模型端到端机密性,knoll-2025,UIST 正式全文第 3–8.3 节、Figures 1–8 与 Tables 1–3,V3,D2,P3,Q3,VERIFIED,真实部署桥接；用户群和问卷访谈规模限制一般化
+C76,DKME 将事实寻址与参数写入解耦，并以分区记忆限制持续编辑干扰；两部分消融都会降低综合分数,dkme-2026,ACL 正式 PDF 第 4.1–5.4 节、图 2、表 2–5，正式页码 16131–16135,V3,D2,P2,Q2,VERIFIED,全文复核；比较限于论文的模型、三基准与人工构造编辑流
+C77,GLAME 用外部知识图的关联子图约束一次参数编辑，在所测模型上改善关联事实迁移与多跳问答但依赖图覆盖,glame-2024,EMNLP 正式 PDF 第 4–5 节、图 2、表 1–3，正式页码 22649–22655,V3,D2,P2,Q2,VERIFIED,全文复核；仅作为参数编辑与图式外存的桥接证据
+C78,AriGraph 在动态文本环境中联合更新语义关系与情景观察并用于规划，但结果受最佳三次运行汇总和抽取错误累积限制,arigraph-2025,IJCAI 2025 正式 PDF 第 2、5、7 节、算法 1、图 2–5 与表 1–2，正式页码 13–18,V3,D2,P2,Q2,VERIFIED,全文与正式元数据复核；正确 DOI 为 10.24963/ijcai.2025/2，隔离错误的 2024/2 聚合记录
+C79,Associa 把事件图的关联子图检索与迭代审议召回组合，在长期个人记忆基准上优于所列平面基线且两部分消融幅度不同,associa-2025,ACL 正式 PDF 第 4–5 节、图 2–3、表 1–3，正式页码 17535–17541,V3,D2,P2,Q2,VERIFIED,全文复核；只覆盖英语基准，不代表真实用户长期部署
+C80,RAG 的外部检索库可成为内容泄露源，同时加入检索上下文在指定设置下降低了基础模型训练文本复现，二者必须分开审计,rag-privacy-good-bad-2024,ACL 正式 PDF 第 3–5 节、表 1–3 与图 4–5，正式页码 4507–4512,V3,D2,P2,Q2,VERIFIED,全文安全复核并降敏；经验性缓解不构成形式化隐私保证
+C81,六个平台穿行审计表明聊天、派生记忆和定制对象是不同控制单元，删除会话不必然删除由其产生的记忆,privacy-control-conversational-llm-platforms-2026,CHI 正式版本族全文第 3–6 节、表 1–5 与图 2–11,V3,D2,P3,Q2,VERIFIED,跨平台系统审计；结论限于 2024 年 11 月至 2025 年 1 月的界面与政策快照，不能证明后端擦除
+C82,情感支持场景研究显示删除类控制最受偏好，而跨会话记忆开关带来连续性效用与保护感之间的张力,sp-controls-emotional-engagement-2026,USENIX 正式版本族全文第 3–5 节、表 1–5 与图 2,V3,D2,P2,Q2,VERIFIED,354 人随机化情境研究；不是实际情感压力下的真实控制操作或后端验证
+C83,英国月度用户调查中训练退出采用率很低，且许多参与者混淆未来训练退出、聊天删除与既有模型影响的移除,hoovered-data-point-2025,PoPETs 正式全文第 3–6 节、图 2 与表 3，正式页码 841–850,V3,D2,P2,Q2,VERIFIED,211 名有效参与者的横截面自报与仿真界面研究，不是实际擦除审计
+C84,两年自然发生的社区讨论显示会话平台的收集、使用、保留、记忆默认与删除关切会随功能、政策和事故事件变化,user-sp-concerns-conversational-ai-2025,IEEE S&P 正式版本族全文第 3–7 节、表 1–4 与图 1–5,V3,D2,P2,Q2,VERIFIED,单一公开社区的纵向语料与中断时间序列；不能代表沉默用户或产品遥测
+C85,智能体权限方法联合个人历史与相似用户模式后提高平均预测准确率，但 94.4% 的高置信度准确率只覆盖 25.9% 请求,automating-data-access-permissions-ai-agents-2026,IEEE S&P 正式版本族全文第 4–7 节、图 1–7 与表 1–6,V3,D2,P2,Q2,VERIFIED,203 人情境研究和离线预测；安全执行、沙箱与真实数据流执法不在论文范围内
+C86,ARIEL 把历史隐私决定保存为可追踪前例并以逻辑蕴含处理新请求，在所测数据上降低合适类判断错误但仍需冲突与人工升级,ariel-privacy-decisions-2026,PoPETs 正式全文第 3–7 节、算法 1、图 3–7 与表 1–5，正式页码 380–390,V3,D2,P2,Q2,VERIFIED,历史由一次性情境数据拆分近似，不能替代真实随时间变化的偏好轨迹
+C87,AnyEdit 将长形式目标分块并自回归编辑多个关键标记，在所测基准上改善多格式知识写入但增加编辑时间且未验证终身连续编辑,anyedit-2025,ICML/PMLR 正式全文第 3–7 节、图 1–5 与表 1–2，正式页码 27511–27518,V3,D2,P2,Q2,VERIFIED,全文复核；21.5% 改进与 24.7% 时间增幅只限论文模型、数据和指标，当前不支持多模态或终身编辑
+C88,StableEdit 以运行均值和协方差持续白化编辑梯度；移除持续归一化会使论文所测 WikiBigEdit 指标显著下降，但其理论与实验仍限于给定连续参数编辑设置,stableedit-2026,ICML 2026 全文第 3至4 节、表 1至5、图 2与图 4及附录 C,V3,D2,P2,Q2,VERIFIED,全文复核；表 4 的无持续归一化消融为直接证据，理论假设和标记匹配指标边界均保留
+C89,LightMem 的独立复现显示检索器选择、检索深度与回答预算可改变结论，且金标原始证据优于对应构造记忆，构成对复杂记忆写入必然优于朴素检索的直接反证,reproducing-lightmem-2026,arXiv:2607.29104 全文图 1至4及第 3、5、6、7 节,V3,D3,P1,Q2,VERIFIED,独立受控复现，但尚未同行评议、只使用 LongMemEval-S 和一个回答生成模型，按桥接反证使用
+C90,MRAgent 不把记忆读取约化为一次近邻检索，而是依据中间证据主动扩展和剪枝异质图；论文在 LoCoMo 与 LongMemEval 上报告改进，但遍历成本、静态构图和图增长仍是部署边界,mragent-2026,ICML 2026 全文第 3至4 节、图 4至6、表 1至3及第 7 节,V3,D2,P2,Q2,VERIFIED,全文复核；主结果与跨骨干星号结果分开解释，不把静态图读取外推为完整记忆生命周期
+C91,ChronoMem 把长期记忆写入组织为全局快照，并把自然语言撤销请求映射为历史版本后原子回滚；该控制原语具有独特性，但论文仍是预印本且存在模板占位符与表文数值冲突,chronomem-2026,arXiv:2607.27773 全文图 1至2、表 1至7、算法 2及第 3至4 节,V3,D2,P1,Q1,VERIFIED,按 C 级桥接证据使用；不引用相互冲突的 MemoryAgentBench 数字，也不把 PDF 模板占位 DOI 当作正式出版信息
+C92,Mem-Gallery把多模态跨会话记忆拆为抽取与测试时适应、推理、知识管理和效率，并显示显式保留多模态信息仍未消除推理与管理缺口,mem-gallery-2026,Figure 3、第3节及Tables 4至6，PDF第3至9页,V3,D2,P2,Q2,VERIFIED,受控生成对话不等同于多年真实用户轨迹；十二种系统比较不能外推到所有部署
+C93,PersonalAlign从长期图形界面行为记录流式维护偏好与惯例双层记忆，并在AndroidIntent中改善模糊指令执行和前摄建议,personalalign-2026,Figure 2、Figure 5、第4至5节及Tables 3至7，PDF第4至9页,V3,D2,P2,Q2,VERIFIED,结果限于AndroidIntent、给定记录生成与受测代理，不证明跨设备真实长期部署
+C94,时间冲突评测显示模型可能识别事实可变性却不把判断转化为接受最新证据的最终行动，显式时间提示也只能部分缩小差距,when-facts-change-2026,Figure 2、第3节、Tables 2至4及Table 6，PDF第3至9页,V3,D2,P2,Q2,VERIFIED,该工作观察推理与答案，不执行持久写回或版本替换，按桥接反证使用
+C95,ConflictBank分别构造错误信息、时间差异和语义分歧，并联合测量外部证据冲突、参数知识冲突及二者交互,conflictbank-2024,Figure 1、第2至3节、Figures 3至8及Table 3，PDF第3至19页,V3,D2,P2,Q2,VERIFIED,大规模自动构造数据和给定模型族不能替代真实检索库的来源与权限审计
+C96,AMA以Constructor、Retriever、Judge和Refresher形成从多粒度写入、冲突检测到目标条目更新或删除的长期记忆维护闭环,ama-2026,Figure 2、第3.1至3.4节、Figure 3及Tables 1至4，正式页码3100至3107,V3,D2,P2,Q2,VERIFIED,多代理调用增加成本，删除操作正确生成不等于所有派生状态已完成可验证清除
+C97,相同错误—修复记忆在链式工程代理中提高可靠性，却可能压缩树式搜索多样性并降低最终结果，说明记忆收益取决于代理架构,demystify-memory-mle-2026,Figure 2、第3.3与4.2至4.6节、Tables 1至5及Figures 3至4，正式页码10813至10820,V3,D2,P2,Q2,VERIFIED,实验集中于MLE-bench lite、两种预设架构和同任务跨运行，不证明跨任务普遍反转
+C98,Memp把程序记忆分为构建、检索与更新，并比较追加、验证淘汰和失败后原位纠错，还测试强模型记忆向弱模型迁移,memp-2026,Figure 2、第3.1、4.2至4.3与5节、Tables 1至2及Figures 3与5，正式页码17492至17498,V3,D2,P2,Q2,VERIFIED,当前依赖显式任务奖励和向量检索，结果限于TravelPlanner与ALFWorld
+C99,StreamBench用逐步输入、预测、反馈和状态更新协议测量语言代理的持续改进，并允许更新提示、检索器、外部记忆或参数,streambench-2024,Figure 1、第2至4节、Algorithms 1至2及Tables 1至2，PDF第2至9页,V3,D2,P2,Q2,VERIFIED,序列由静态数据随机串行化且反馈为模拟二元信号，因此按桥接基准使用
+C100,OpenUnlearning统一多种遗忘算法、评测与基准，并用数百个检查点对遗忘指标本身的可信度和稳健性做元评测,openunlearning-2025,NeurIPS 2025正式全文第3至6节、Figures 2至5与Tables 2至4,V3,D2,P2,Q2,VERIFIED,统一框架提高可比性，但不能把某一指标或公开检查点的表现外推为真实删除合规
+C101,FaithUn同时检查改写泛化、多跳关联知识和同答案无关知识，揭示只抑制答案词元或局部提示的表面遗忘,faithun-2025,EMNLP 2025正式全文第3至5节、Figure 1及Tables 1至7，正式页码12999至13014,V3,D2,P2,Q2,VERIFIED,数据依赖Wikidata、自动生成问句和选择题设置，不能覆盖所有自然语言恢复路径
+C102,FUMA显示即使目标知识难以直接检索，遗忘优化仍可能留下可区分忘却集身份的痕迹，形成删除后的独立隐私风险,fuma-2025,EMNLP 2025正式全文第3至6节、Figures 1至5与Tables 1至4，正式页码10873至10892,V3,D2,P2,Q2,VERIFIED,成员推断结果依赖受测模型、遗忘方法与攻击假设，不等于任意外部主体都能识别
+C103,ICLR 2025实验显示部署量化可恢复多种遗忘方法试图隐藏的目标知识，暴露全精度评测无法覆盖的可逆性失败,quantization-unlearning-failure-2025,ICLR 2025正式全文第3至6节、Figures 1至4与Tables 1至7,V3,D2,P2,Q2,VERIFIED,恢复比例只适用于论文方法、模型、数据与量化设置；量化并非所有删除失败的充分测试
+C104,RAGuard用自然发生的支持、误导和无关证据测试事实核查，在所测系统中误导检索使RAG低于无检索基线,raguard-2025,NeurIPS 2025正式全文Figure 2、Figure 4、Table 1至2及第2至5节，PDF第3至11页,V3,D2,P2,Q2,VERIFIED,领域集中于政治事实核查；该基准与同名研讨会防御框架属于不同作品族
+C105,本体引导长期记忆并行维护关系图、向量片段和用户档案，以时间、来源与反馈控制晋升、查询路由和回滚，在所测基准上同时改善召回与成本,ontology-agent-memory-2026,MLSys 2026全文第3至5节、Tables 5至6及消融，PDF第3至11页,V3,D2,P2,Q2,VERIFIED,主基准由作者构建，图抽取与实体对齐错误会累积，尚无真实多租户长期部署
+C106,Hippocampus用动态小波矩阵在压缩域内索引语义签名并保留可无损重建的词元流，降低所测长期智能体记忆的检索延迟与词元开销,hippocampus-2026,MLSys 2026全文第3.1至3.4节、Tables 1至3，PDF第5至10页,V3,D2,P2,Q2,VERIFIED,效率结果限于给定实现、数据与硬件；删除路径是设计说明而非实证保证
+C107,MemWeaver把交互行为组织为带时间与语义边的行为图，再综合为演化偏好的认知叙事；增量更新在所测个性化任务中性能紧随全量重建，同时耗时接近不更新方案,memweaver-personal-2026,WWW 2026全文第3至4节、Tables 1至2、Figure 5与第4.4.2节，PDF第4至8页,V3,D2,P2,Q2,VERIFIED,Figure 5是曲线比较且未报告完整精确数值；不得写成增量质量优于全量重建
+C108,PromptX把经历写成Engram并用图上激活扩散支持跨会话召回，但其企业采用与成本收益主要来自作者或合作方自报，不能视为受控部署效果,promptx-2026,WWW Companion 2026全文第2至4节、Figure 1与Table 1,V3,D2,P2,Q1,VERIFIED,四页展示论文、缺少受控记忆基准；部署数字和业务影响只作C级桥接线索
+C109,MLSys 2025审计显示KV状态压缩不仅改变吞吐和延迟，也会使大量回答长度与语义质量发生明显变化，构成长上下文状态压缩的答案层反证,kv-cache-compression-audit-2025,MLSys 2025全文第3至6节、Table 5及Figures 4至8,V3,D2,P2,Q2,VERIFIED,该记录只因答案行为反证纳入，不把普通缓存压缩工程扩张为长期语义记忆路线
+C110,AgenticCache把跨轨迹计划转移写入在线缓存，并由后台模型异步验证和修订，在四类具身多智能体基准中改善所测行动成功率与延迟,agenticcache-2026,MLSys 2026全文第3至5节、Algorithms 1至2及Tables 2至4,V3,D2,P2,Q2,VERIFIED,方法高度依赖具身计划局部性与给定基准，只作为程序记忆桥接，不证明通用智能体收益
+C111,SagaLLM把目标、理由、约束、状态转移与补偿计划持久化为不可变事务记录和检查点，支持多智能体计划的恢复、并发一致性与补偿回滚,sagallm-2025,PVLDB 18(12)全文第3至7节、Figures 2至6与Tables 2至5,V3,D2,P2,Q2,VERIFIED,事务语义提高可恢复性，但不会验证模型生成计划本身正确，也未覆盖所有外部副作用
+C112,ZK-APEX让个性化客户端为约定的近似遗忘变换生成零知识执行证明，证明操作被执行而不暴露私有参数，但不等价于证明目标知识语义上不可恢复,zk-apex-2026,MLSys 2026全文第3至6节、Figures 1至4与Tables 1至4,V3,D2,P2,Q2,VERIFIED,生成模型实验规模有限，证明对象是变换合规而非所有恢复攻击下的真实遗忘
+C113,CareCall真实公共卫生部署中，有长期记忆组呈现更深的部分健康披露和更多积极反应，同时敏感追问引发隐私顾虑；组间来自不同时期，结论只能按关联解释,carecall-ltm-self-disclosure-2024,CHI 2024作者开放正式全文Figure 1、Tables 2至3及第5.1.1、5.2、5.3.2、6.3至6.4节，PDF第3至15页,V3,D2,P2,Q2,VERIFIED,"1,252份真实通话日志和9名访谈用户；非同期随机分组，主题效果不一致，不作因果外推"
+C114,HippoRAG 2以段落节点和识别过滤扩展图式检索，在所测事实、意义建构与关联任务上改善结果，但过滤可能删除相关三元组且时间和内存仍高于标准稠密RAG,hipporag2-2025,ICML 2025/PMLR正式全文第3.1至3.5节、Tables 2至7、Figure 3、第7节及Appendix E/F,V3,D2,P2,Q2,VERIFIED,图式收益与识别过滤失败、图搜索错误和离线成本配对呈现；不外推为图结构普遍优于稠密检索
+C115,SSU面向连续到达的版权删除请求，以任务向量相减、随机标签损失和梯度显著性限制实施序列遗忘；论文同时报告历史目标知识可能在后续时间步重新显现，因而不构成不可逆删除保证,ssu-copyright-2025,Findings of NAACL 2025全文Figure 2、Table 1、Figure 5、§4.1至§4.2及Limitations，PDF第4至9页与附录,V3,D2,P2,Q2,VERIFIED,评价集中于书籍、所选开源模型和词法重合指标；不覆盖外部库、日志、缓存、备份或模型副本
+C116,RAGVA基于Transurban收费公路客服部署经验，结合九名工程人员的两次焦点组，给出从数据摄取、检索生成到测试维护的生命周期，并归纳八类工程挑战,ragva-deployment-2025,Journal of Systems and Software 226全文Figures 1至2、§3.1、§4至§5及§8至§9，PDF第2至14页,V3,D2,P2,Q2,VERIFIED,单一公司、单一场景和九名参与者；焦点组不是随机对照或独立效果验证，论文也不提出新检索算法
